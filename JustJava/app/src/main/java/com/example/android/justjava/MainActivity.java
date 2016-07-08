@@ -10,6 +10,8 @@ import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
 
+    int quantity = 2; /* total number of coffees */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
     /*
      * This method is called when the order button is clicked.
      */
-    public void submitOrdero(View view){
-        int quantity = 3; /* total number of coffees */
+    public void submitOrder(View view){
         display(quantity);
         displayPrice(quantity * 5);
     }
@@ -41,10 +42,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
    public void decreaseQuantity(View view){
-       display(1);
+       quantity = quantity - 1;
+       display(quantity);
+       displayPrice(quantity * 5);
    }
 
     public void increaseQuantity(View view){
-        display(2);
+        quantity = quantity + 1;
+        display(quantity);
+        displayPrice(quantity * 5);
     }
 }
