@@ -18,6 +18,12 @@
         android:textAllCaps="true"
         android:text="Quantity" />
 
+    <Button
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:textAllCaps="true"
+        android:text="+"
+        android:onClick="increaseQuantity"/>
     <TextView
         android:id="@+id/value_text_view"
         android:layout_width="wrap_content"
@@ -25,7 +31,14 @@
         android:layout_marginBottom="16dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        android:text="0"/>
+        android:text="2"/>
+
+    <Button
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:textAllCaps="true"
+        android:text="-"
+        android:onClick="decreaseQuantity"/>
 
     <TextView
         android:id="@+id/price_text_view"
@@ -42,7 +55,7 @@
         android:layout_marginBottom="16dp"
         android:textColor="@android:color/black"
         android:textSize="16sp"
-        android:text="$0"/>
+        android:text="$10"/>
 
     <Button
         android:layout_width="wrap_content"
