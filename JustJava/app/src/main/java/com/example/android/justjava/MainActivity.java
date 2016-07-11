@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         valueTextView.setText(""+ number);
     }
 
+
     /*
      * This method displays the given quantity value on the screen.
      */
@@ -44,12 +45,11 @@ public class MainActivity extends AppCompatActivity {
    public void decreaseQuantity(View view){
        quantity = quantity - 1;
        display(quantity);
-       displayPrice(quantity * 5);
    }
 
     public void increaseQuantity(View view){
         quantity = quantity + 1;
         display(quantity);
-        displayPrice(quantity * 5);
     }
 }
+
