@@ -18,13 +18,15 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginRight="4dp">
+            android:layout_marginRight="12dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:gravity="center_horizontal"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 android:text="Team A" />
 
             <TextView
@@ -32,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:textSize="60dp"
                 android:gravity="center_horizontal"
                 android:text="0" />
 
@@ -60,24 +63,34 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="300dp"
+            android:background="@android:color/darker_gray">
+
+        </View>
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginLeft="4dp">
+            android:layout_marginLeft="12dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:textStyle="bold"
                 android:gravity="center_horizontal"
+                android:textSize="20dp"
                 android:text="Team B" />
 
             <TextView
                 android:id="@+id/team_b_score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="60dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center_horizontal"
                 android:text="0" />
@@ -114,6 +127,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="resetScore"
+        android:layout_marginBottom="32dp"
         android:text="reset"/>
 
 </RelativeLayout>
