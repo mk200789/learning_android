@@ -21,35 +21,41 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view){
+        int price = quantity * 5;
         display(quantity);
-        displayPrice(quantity * 5);
+        displayMessage("Total: "+ NumberFormat.getCurrencyInstance().format(price));
     }
 
     /*
-     * This method displays the given quantity value on the screen.
+     * This method updates the quantity value.
      */
     private void display(int number){
         TextView valueTextView = (TextView) findViewById(R.id.value_text_view);
         valueTextView.setText(""+ number);
     }
 
-
     /*
-     * This method displays the given quantity value on the screen.
-     */
-    private void displayPrice(int number){
-        TextView priceTextView = (TextView) findViewById(R.id.pricevalue_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
-    }
-
-   public void decreaseQuantity(View view){
+     * This method decrease the quantity value.
+    */
+    public void decreaseQuantity(View view){
        quantity = quantity - 1;
        display(quantity);
-   }
+    }
 
+    /*
+     * This method increase the quantity value.
+    */
     public void increaseQuantity(View view){
         quantity = quantity + 1;
         display(quantity);
+    }
+
+    /*
+     * This method updates the price value on screen.
+    */
+    private void displayMessage(String message){
+        TextView priceTextView = (TextView) findViewById(R.id.pricevalue_text_view);
+        priceTextView.setText(message +"\nThank you!");
     }
 }
 
