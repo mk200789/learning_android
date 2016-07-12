@@ -22,13 +22,12 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view){
+        int price = quantity * 5;
+
         CheckBox whippedCreamCheckbox = (CheckBox) findViewById(R.id.whipped_cream_topping);
         Boolean hasWhippedCream = whippedCreamCheckbox.isChecked();
         whippedCreamCheckbox.setChecked(false);
-
-        int price = quantity * 5;
-        display(quantity);
-
+        
         TextView summaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
         String summary = createOrderSummary(NumberFormat.getCurrencyInstance().format(price), hasWhippedCream);
         summaryTextView.setText(summary);
