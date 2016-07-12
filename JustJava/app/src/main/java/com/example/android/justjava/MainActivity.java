@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import java.text.NumberFormat;
-
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,9 +19,10 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view){
-        int price = quantity * 5;
-        display(quantity);
-        displayMessage("Total: "+ NumberFormat.getCurrencyInstance().format(price));
+        int price = calculatePrice();
+        //displayMessage("Total: "+ NumberFormat.getCurrencyInstance().format(price));
+        String message = createOrderSummary(price);
+        displayMessage(message);
     }
 
     /*
@@ -54,8 +53,30 @@ public class MainActivity extends AppCompatActivity {
      * This method updates the price value on screen.
     */
     private void displayMessage(String message){
-        TextView priceTextView = (TextView) findViewById(R.id.pricevalue_text_view);
-        priceTextView.setText(message +"\nThank you!");
+        TextView orderSummaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        orderSummaryTextView.setText(message);
     }
+
+    /*
+     * This method is to calculate the price of the order.
+     *
+     * @return total price
+     */
+    private int calculatePrice(){
+        int price = quantity * 5;
+        return price;
+    }
+
+    /*
+     * This method is create an order Summary.
+     *
+     * @return order summary
+     */
+    private String createOrderSummary(int price){
+        String message = "Name: Kaptain Kim \nQuantity: "+ quantity +"\nTotal: $"+ price +"\nThank you!";
+        return message;
+    }
+
+
 }
 
