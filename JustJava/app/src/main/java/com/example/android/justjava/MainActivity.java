@@ -3,6 +3,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -21,9 +22,18 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view){
+        CheckBox whippedCreamCheckbox = (CheckBox) findViewById(R.id.whipped_cream_topping);
+        Boolean hasWhippedCream = whippedCreamCheckbox.isChecked();
+        whippedCreamCheckbox.setChecked(false);
+
         int price = quantity * 5;
         display(quantity);
-        displayMessage("Total: "+ NumberFormat.getCurrencyInstance().format(price));
+
+        TextView summaryTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        String summary = createOrderSummary(NumberFormat.getCurrencyInstance().format(price), hasWhippedCream);
+        summaryTextView.setText(summary);
+
+
     }
 
     /*
@@ -53,8 +63,12 @@ public class MainActivity extends AppCompatActivity {
     /*
      * This method updates the price value on screen.
     */
-    private void displayMessage(String message){
-        TextView priceTextView = (TextView) findViewById(R.id.order_summary_text_view);
-        priceTextView.setText(message +"\nThank you!");
+    private String createOrderSummary(String total, Boolean topping){
+        String name = "Name: Captain Kim.\n";
+        String summary = name + "Total: " + total + "\n";
+        summary += "Whipped cream included? " + topping + "\n";
+        summary += "Thank you!";
+        return summary;
     }
+
 }
